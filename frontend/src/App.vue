@@ -1,7 +1,11 @@
 <template>
-  <div>
-    {{ data }}}
+  <div id="app">
+    {{ data }}
+    <div>
+      <button @click="randomId()">Random</button>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -11,16 +15,41 @@ export default {
   name: 'App',
   data() {
     return {
-      data: null
+      data: null,
+      total: null,
+      idCard: null,
     }
   },
   components: {
   },
   mounted() {
-    axios
-    .get('http://127.0.0.1:8000/api/v1/cards/')
-    .then(response => this.data = response.data)
-  }
+    this.data = 'Press choose to draw a random card'
+    this.getTotal()
+  },
+  methods: {
+    // GET TOTAL
+    getTotal() {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/api/v1/cards/',
+      })
+      .then(response => this.total = response.data['count'])
+    },
+      // GET CARD
+      getCard(id) {
+        axios({
+          method: 'get',
+          url: 'http://127.0.0.1:8000/api/v1/cards/' + id
+        })
+        .then(response => this.data = response.data['description'])
+      },
+    // RANDOM ID
+    randomId() {
+      this.idCard = Math.floor((Math.random() * this.total) + 1)
+      this.getCard(this.idCard)
+    },
+  },
+  
 }
 </script>
 
