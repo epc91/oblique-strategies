@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    {{ data }}
-    <div>
-      <button @click="randomId()">Random</button>
+    <div class="card">
+      <div class="text" @click="randomId()">
+        {{ data }}
+      </div>
     </div>
   </div>
 
@@ -23,7 +24,7 @@ export default {
   components: {
   },
   mounted() {
-    this.data = 'Press choose to draw a random card'
+    this.data = 'Click here to select a random card'
     this.getTotal()
   },
   methods: {
@@ -54,4 +55,41 @@ export default {
 </script>
 
 <style>
+
+  *, *::before, *::after {
+      box-sizing: border-box;
+  }
+  #app {
+    background-image: url('~@/assets/bg.png');
+    background-size: cover;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    text-align: center;
+  }
+  .card {
+    width: 9cm;
+    height: 7cm;
+    background-color: rgba(230, 230, 230, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .card:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgba(204, 204, 204, 0.7);
+  }
+  .text {
+    cursor: pointer;
+  }
 </style>
