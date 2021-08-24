@@ -5,11 +5,11 @@ Hi friends! Here is the first version of Oblique Strategies (Web Version), using
 ![screenshot](https://user-images.githubusercontent.com/86374599/130698534-53f8a304-71da-4c98-894a-09ed6cbc0f69.png)
 
 # Installation 🌱
-1. Clone the project: `git clone`
+1. Clone the project: `git clone git@github.com:epc91/obliqueStrategies.git`
 2. **Backend**
-4. Create a python 3 virtual environment: `python3 m- venv env-name`
+4. Create a python 3 virtual environment: `python3 -m venv env-name`
 5. Activates the virtual environment: `source env-name/bin/activate`
-6. Install the packages: `pip install requirements.txt`
+6. Install the packages: `pip install -r requirements.txt`
 7. **Frontend**
 8. Install the packages: `npm install`
 
